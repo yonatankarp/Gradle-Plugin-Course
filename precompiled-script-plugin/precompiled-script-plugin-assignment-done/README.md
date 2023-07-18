@@ -9,7 +9,7 @@ The benefit you will now receive is that build logic can be extracted step by st
 In the same way new build logic can be added. This can be an intermediate step at rewriting script logic into 
 binary plugin.
 
-In this project we will build on top of [previous remote-script-plugin-example](../../script-plugin/remote-script-plugin-example) We will transfer build
+In this project we will build on top of [previous remote-script-plugin-example](../../script-plugin/remote-script-plugin-done) We will transfer build
 logic into separate module. Plugin will still be defined in a script file. To create an actual plugin out of build script under buildSrc we
 have to add [groovy-gradle-plugin](https://plugins.gradle.org/plugin/dev.gradleplugins.groovy-gradle-plugin) to buildSrc itself.
 

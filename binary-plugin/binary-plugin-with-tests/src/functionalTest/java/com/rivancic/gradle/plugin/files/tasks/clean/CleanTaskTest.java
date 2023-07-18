@@ -69,7 +69,7 @@ public class CleanTaskTest {
 
   private void createSortedFilesInBuildDirectory() throws IOException {
     fileTestHelper.createDirectory("build/files");
-    fileTestHelper.createNewFileWithContent("build/files/build.gradle", "test");
+    fileTestHelper.createNewFileWithContent("build/files/build.gradle.kts.kts", "test");
   }
 
   private void createFilesToSort() throws IOException {
@@ -83,10 +83,10 @@ public class CleanTaskTest {
           id "com.rivancic.files-plugin"
         };
         """;
-    fileTestHelper.createNewFileWithContent("build.gradle", buildFileContent);
+    fileTestHelper.createNewFileWithContent("build.gradle.kts.kts", buildFileContent);
   }
 
   private void createSettingsFile() throws IOException {
-    fileTestHelper.createNewFileWithContent("settings.gradle.kts", "rootProject.name = 'filesPlugin'");
+    fileTestHelper.createNewFileWithContent("settings.gradle.kts.kts.kts", "rootProject.name = 'filesPlugin'");
   }
 }

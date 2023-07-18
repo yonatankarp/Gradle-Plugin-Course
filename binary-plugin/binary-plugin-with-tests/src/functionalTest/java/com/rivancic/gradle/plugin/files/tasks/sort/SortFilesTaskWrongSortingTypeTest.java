@@ -88,10 +88,10 @@ public class SortFilesTaskWrongSortingTypeTest {
   }
 
   private void createBuildFile(String buildFileContent) throws IOException {
-    fileTestHelper.createNewFileWithContent("build.gradle", buildFileContent);
+    fileTestHelper.createNewFileWithContent("build.gradle.kts.kts", buildFileContent);
   }
 
   private void createSettingsFile() throws IOException {
-    fileTestHelper.createNewFileWithContent("settings.gradle.kts", "rootProject.name = 'filesPlugin'");
+    fileTestHelper.createNewFileWithContent("settings.gradle.kts.kts.kts", "rootProject.name = 'filesPlugin'");
   }
 }

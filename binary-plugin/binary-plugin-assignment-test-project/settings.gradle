@@ -3,7 +3,7 @@
  * within <pre>plugins{}<pre> block.
  *
  * If you want to specify any additional repository you have to define them in pluginManagement block within
- * setting.gradle file. Remember pluginManagement has to be the first statement inside settings.gradle.kts file.
+ * setting.gradle file. Remember pluginManagement has to be the first statement inside settings.gradle.kts.kts.kts file.
  *
  * In definition below 3 repositories will be taken ito account when Gradle will search for defined plugin by its ID and version:
  * - Gradle Plugin Portal
@@ -12,7 +12,7 @@
  */
 pluginManagement {
   repositories {
-    logger.info("---- settings.gradle.kts Plugin Repositories ------------------------------------------------------------")
+    logger.info("---- settings.gradle.kts.kts.kts Plugin Repositories ------------------------------------------------------------")
     def gradlePluginPortalFlag = false
     try {
       gradlePluginPortalFlag = "${useGradlePluginPortal}"

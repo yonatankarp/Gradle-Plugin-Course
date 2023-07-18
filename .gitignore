@@ -130,8 +130,8 @@ gradle-app.setting
 **/build/
 
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij
-/script-plugin/remote-script-plugin-example/.idea/
-/script-plugin/local-script-plugin-example/.idea/
+/script-plugin/remote-script-plugin-done/.idea/
+/script-plugin/local-script-plugin-done/.idea/
 /task/file-tasks-assignment-done/.idea/
 /task/file-tasks-assignment/.idea/
 /binary-plugin/binary-plugin-assignment-done/.idea/
@@ -141,3 +141,6 @@ gradle-app.setting
 /binary-plugin/binary-plugin-extension-test-project/.idea/
 /binary-plugin/binary-plugin-gradle-plugin-portal/.idea/
 /binary-plugin/binary-plugin-with-tests/.idea/
+/script-plugin/local-script-plugin/.idea/
+/script-plugin/remote-script-plugin/.idea/
+/script-plugin/remote-script-plugin-done/.idea/
