@@ -7,8 +7,8 @@ include(
     "script-plugin:local-script-plugin-done",
     "script-plugin:remote-script-plugin",
     "script-plugin:remote-script-plugin-done",
-    "precompiled-script:file-tasks-assignment",
-    "precompiled-script:file-tasks-assignment-done",
+    "precompiled-script-plugin:precompiled-script-plugin-assignment",
+    "precompiled-script-plugin:precompiled-script-plugin-assignment-done",
     "binary:file-tasks-assignment",
     "binary:file-tasks-assignment-done",
 )
