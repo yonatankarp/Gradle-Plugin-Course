@@ -1,0 +1,97 @@
+/**
+ * <a href="https://plugins.gradle.org/plugin/com.gradle.plugin-publish">com.gradle.plugin-publish</a> is a plugin that contains functionality for publishing Gradle plugins to Gradle Plugin Portal.
+ * Since version 1.0.0-rc-1, it automatically includes java-gradle-plugin and maven-publish plugin.
+ *
+ * jvm-test-suite plugin helps to structure different kinds of tests in a separated source directories.
+ * It is applied automatically with the java plugin.
+ */
+plugins {
+  id "com.gradle.plugin-publish" version "1.2.0" // automatically adds java-gradle-plugin and maven-publish
+}
+
+repositories {
+  mavenCentral()
+}
+
+compileJava {
+  sourceCompatibility = "17"
+  targetCompatibility = "17"
+}
+
+/**
+ * This project will have 2 test suites.
+ *   test - default one which will use JUnit5 and
+ *   integrationTest suite for functional testing of Gradle plugin.
+ */
+testing {
+  suites {
+    test {
+      useJUnitJupiter()
+    }
+
+    functionalTest(JvmTestSuite) {
+      dependencies {
+        implementation project()
+      }
+
+      targets {
+        all {
+          testTask.configure {
+            shouldRunAfter(test)
+          }
+        }
+      }
+    }
+  }
+}
+
+dependencies {
+  functionalTestImplementation gradleTestKit()
+}
+
+/**
+ * An extension for java-gradle-plugin in which we define all the plugins that this project will create.
+ * Each plugin should have name, id and an implementationClass defined.
+ * During the jar task it will be verified that plugin descriptor is correct. implementationClass has to be an existing
+ * class implementing Plugin interface.
+ *
+ * For publishing the plugin to the Gradle Plugin Portal you should provide meaningful <b>description</b> withing the specific plugin definition.
+ * This information will be shown on the plugin detail page, and will help users to understand which functionality your plugin supports.
+ */
+gradlePlugin {
+
+  // Metadata for publishing on the Gradle Plugin Portal. This <b>pluginBundle</b> extension is provided with the <b>com.gradle.plugin-publish</b> Gradle plugin.
+  website = "https://github.com/rivancic/gradle"
+  vcsUrl = "https://github.com/rivancic/gradle"
+
+  testSourceSets sourceSets.functionalTest // Returns the source sets executing the functional tests with TestKit. Defaults to project.sourceSets.test.
+  plugins {
+    create("filesPlugin") {
+      id = "com.rivancic.files-plugin"
+      displayName = "Files Sorting Plugin"
+      description = "Plugin that can sort provided files based on a particular rule (alphabetically, creation date, extension)"
+      implementationClass = "com.rivancic.gradle.plugin.files.FilesPlugin"
+      tags.set(["files", "sorting"])
+    }
+  }
+}
+
+/**
+ * In publishing block we can define specific package repositories where the artifacts will be published.
+ * As in our case we have Maven Archiva running locally we specify local URL,
+ * name of the repository so that we can find publishing task easily and credentials as Archiva requires
+ * them by default.
+ */
+publishing {
+  repositories {
+    maven {
+      url = "http://localhost:8080/repository/internal"
+      name = "mavenArchivaPrivate"
+      allowInsecureProtocol = true
+      credentials {
+        username = "$privateArchivaUser"
+        password = "$privateArchivaPassword"
+      }
+    }
+  }
+}
