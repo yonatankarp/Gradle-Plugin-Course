@@ -1,12 +1,12 @@
 rootProject.name = "gradle-plugin-course"
 
 include(
-    "task:file-tasks-asignment",
-    "task:file-tasks-asignment-done",
-    "script:file-tasks-asignment",
-    "script:file-tasks-asignment-done",
-    "precompiled-script:file-tasks-asignment",
-    "precompiled-script:file-tasks-asignment-done",
-    "binary:file-tasks-asignment",
-    "binary:file-tasks-asignment-done",
+    "task:file-tasks-assignment",
+    "task:file-tasks-assignment-done",
+    "script-plugin:local-script-plugin-example",
+    "script-plugin:remote-script-plugin-example",
+    "precompiled-script:file-tasks-assignment",
+    "precompiled-script:file-tasks-assignment-done",
+    "binary:file-tasks-assignment",
+    "binary:file-tasks-assignment-done",
 )
