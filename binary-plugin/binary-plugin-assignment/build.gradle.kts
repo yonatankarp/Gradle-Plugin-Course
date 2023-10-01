@@ -38,6 +38,7 @@ gradlePlugin {
  */
 publishing {
   repositories {
+    gradlePluginPortal()
     maven {
       url = uri("http://localhost:8080/repository/internal")
       name = "mavenArchivaPrivate"

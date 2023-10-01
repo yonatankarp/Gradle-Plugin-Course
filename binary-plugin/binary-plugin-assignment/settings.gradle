@@ -11,5 +11,20 @@
  * - Custom defined Maven repository where Archiva server is providing the plugins.
  */
 
-rootProject.name = 'binary-plugin-assignment'
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
+        maven {
+            url = "http://localhost:8080/repository/internal"
+            name = "mavenArchivaPrivate"
+            allowInsecureProtocol = true
+//            credentials {
+//                username = "$privateArchivaUser"
+//                password = "$privateArchivaPassword"
+//            }
+        }
+    }
+}
 
+rootProject.name = 'binary-plugin-assignment'
