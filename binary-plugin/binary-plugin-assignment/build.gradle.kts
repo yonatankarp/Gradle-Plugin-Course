@@ -7,7 +7,12 @@
  */
 plugins {
   `java-gradle-plugin`
+  id("maven-publish")
   kotlin("jvm") version "1.9.0"
+}
+
+repositories {
+  mavenCentral()
 }
 
 /**
@@ -19,8 +24,8 @@ plugins {
 gradlePlugin {
   plugins {
     create("filesPlugin") {
-      id = "com.rivancic.files-plugin"
-      implementationClass = "com.rivancic.gradle.plugin.files.FilesPlugin"
+      id = "com.yonatankarp.files-plugin"
+      implementationClass = "com.yonatankarp.gradle.plugin.files.FilesPlugin"
     }
   }
 }
@@ -34,13 +39,13 @@ gradlePlugin {
 publishing {
   repositories {
     maven {
-      url = "http://localhost:8080/repository/internal"
+      url = uri("http://localhost:8080/repository/internal")
       name = "mavenArchivaPrivate"
-      allowInsecureProtocol = true
-      credentials {
-        username = "$privateArchivaUser"
-        password = "$privateArchivaPassword"
-      }
+      isAllowInsecureProtocol = true
+//      credentials {
+//        username = "$privateArchivaUser"
+//        password = "$privateArchivaPassword"
+//      }
     }
   }
 }

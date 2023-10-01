@@ -2,7 +2,7 @@
 
 This is a helper project to test [Binary Plugin Extension](../binary-plugin-extension) project.
 
-Binary plugin with its `sortFiles` extension is applied to the project in [build.gradle](build.gradle.kts) file.
+Binary plugin with its `sortFiles` extension is applied to the project in [build.gradle](build.gradle) file.
 
 ```groovy
 // Apply com.rivancic.files-plugin Gradle plugin

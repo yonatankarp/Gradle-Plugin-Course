@@ -136,7 +136,7 @@ public class SortFilesTaskTest {
   }
 
   private void createBuildFile(String buildFileContent) throws IOException {
-    fileTestHelper.createNewFileWithContent("build.gradle.kts.kts.kts", buildFileContent);
+    fileTestHelper.createNewFileWithContent("build.gradle.kts.kts.kts.kts", buildFileContent);
   }
 
   private void createSettingsFile() throws IOException {

@@ -18,12 +18,12 @@ pluginManagement {
       url = "http://localhost:8080/repository/internal"
       name = "mavenArchivaPrivate"
       allowInsecureProtocol = true
-//      credentials {
-//        username = "$privateArchivaUser"
-//        password = "$privateArchivaPassword"
-//      }
+      credentials {
+        username = "$privateArchivaUser"
+        password = "$privateArchivaPassword"
+      }
     }
   }
 }
-rootProject.name = 'binary-plugin-extension-test-project'
+rootProject.name = 'binary-plugin-extension-test-project-done'
 
