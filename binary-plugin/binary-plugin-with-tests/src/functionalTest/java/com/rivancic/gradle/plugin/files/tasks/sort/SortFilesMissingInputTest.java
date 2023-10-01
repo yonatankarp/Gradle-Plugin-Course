@@ -78,7 +78,7 @@ public class SortFilesMissingInputTest {
   }
 
   private void createBuildFile(String buildFileContent) throws IOException {
-    fileTestHelper.createNewFileWithContent("build.gradle.kts.kts", buildFileContent);
+    fileTestHelper.createNewFileWithContent("build.gradle.kts.kts.kts", buildFileContent);
   }
 
   private void createSettingsFile() throws IOException {
