@@ -11,14 +11,14 @@ One property will hold files directory and second one the sorting type.
 When applying the plugin, `sortFiles` extension will be added to the container of project extensions.
 SortFilesTaskExtension is a POJO class holding configuration properties.
 
-```kotlin
-val sortFilesTaskExtension = project.extensions.create(SORT_FILES_EXTENSION_NAME, SortFilesTaskExtension::class.java)
+```java
+SortFilesTaskExtension sortFilesTaskExtension = project.getExtensions().create("sortFiles", SortFilesTaskExtension.class);
 ```
 
 Later you can reference this extension instance to fetch configuration values for the plugin:
 
-```kotlin
-sortFilesTaskExtension.getSortType().orNull ?: DEFAULT_SORTING_TYPE
+```java
+sortFilesTaskExtension.getSortType().isPresent()?sortFilesTaskExtension.getSortType().get():DEFAULT_SORTING_TYPE
 ```
 
 Simple extension block for sorting files:
@@ -33,10 +33,10 @@ sortFiles {
 You are still able to read properties in `build.gradle` script and pass them through the `sortFiles` extension, while the
 plugin won't read any properties directly:
 
-```kotlin
+```groovy
 sortFiles {
-    getSortType().set(project.extensions.extraProperties.get("tasks.files.sortType") as String)
-    getDirectoryLocation().set(project.extensions.extraProperties.get("tasks.files.folder") as String)
+  sortType = getProject().getExtensions().getExtraProperties().get('tasks.files.sortType')
+  directoryLocation = getProject().getExtensions().getExtraProperties().get('tasks.files.folder')
 }
 ```
 
